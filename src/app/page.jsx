@@ -3,12 +3,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
-import { dice1 } from "./../images/dice1.png";
-import { dice2 } from "@/images/dice-2.png";
-import { dice3 } from "@/images/dice-3.png";
-import { dice4 } from "@/images/dice-4.png";
-import { dice5 } from "@/images/dice-5.png";
-import { dice6 } from "@/images/dice-6.png";
 
 export default function Home() {
   const [num, setNum] = useState(0);
@@ -19,16 +13,23 @@ export default function Home() {
 
   const handleClick = () => {
     setNum(randomNumberInRange(1, 6));
+    document.querySelector(".hideOnClick").style.display = "none";
+    document.querySelector(".showOnClick").style.display = "block";
   };
 
   return (
     <main className="page">
       <h1>Roll a Dice</h1>
-      <Image src={dice1} width="300" height="300"></Image>
-      {dice1}
-      <button className="btn" onClick={handleClick}>
-        Roll the dice
-      </button>
+      <div className="imgWrap">
+        <Image className="hideOnClick" src={"/dice-6.png"} width="300" height="300" />
+        <Image className="showOnClick" src={"/dice-" + num + ".png"} width="300" height="300" />
+      </div>
+
+      <div className="buttonWrap">
+        <button className="btn" onClick={handleClick}>
+          Roll the dice
+        </button>
+      </div>
     </main>
   );
 }
