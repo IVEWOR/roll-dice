@@ -107,10 +107,6 @@ a {
   margin: 0 auto;
 }
 
-.showOnClick {
-  display: none;
-}
-
 .btn {
   background-color: #000;
   cursor: pointer;
