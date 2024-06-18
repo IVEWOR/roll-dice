@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./page.module.css";
 import { useState } from "react";
 
 export default function Home() {
@@ -17,15 +16,18 @@ export default function Home() {
 
   return (
     <main className="page">
-      <h1>Roll a Dice</h1>
-      <div className="imgWrap">
-        <Image src={"/dice-" + num + ".png"} width="300" height="300" />
+      <div className="img-side">
+        <Image src={"/dice-" + num + ".png"} width="400" height="400" />
       </div>
 
-      <div className="buttonWrap">
-        <button className="btn" onClick={handleClick}>
-          Roll the dice
-        </button>
+      <div className={"text-side"}>
+        <h1>Roll a Dice</h1>
+        <p>
+          Roll a Dice is a user-friendly web app that simulates dice rolls.
+          Perfect for games or decision-making, it offers quick, random results
+          with a single click.
+        </p>
+        <button onClick={handleClick}>Roll the dice</button>
       </div>
     </main>
   );
